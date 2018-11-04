@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Users</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+    <ion-label>Quantidade por pagina:</ion-label>
+      <ion-select id="qtd" [(ngModel)]="qtd" (ionChange)="selectQtd($event)">
+        <ion-option value="3" [selected]="true">3</ion-option>
+        <ion-option value="5">5</ion-option>
+        <ion-option value="10">10</ion-option>
+        <ion-option value="15">15</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list> 
+    <button ion-item *ngFor="let p of users" 
+    (click)="selectUser(p.codigo)"> 
+    {{p.nome}} 
+    </button> 
+  </ion-list>
+  <div id="mais"> 
+    <button ion-button round color="primary" (click)="newUser()"> 
+      <ion-icon name="add"></ion-icon> 
+    </button>
+  </div> 
+  <ion-list>
+    <ion-item>
+    <ion-label>Pagina:</ion-label>
+      <ion-select id="page" [(ngModel)]="page" (ionChange)="selectPage($event)">
+        <ion-option *ngFor="let p of total_page" value={{p}}>{{p}}</ion-option>        
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>
