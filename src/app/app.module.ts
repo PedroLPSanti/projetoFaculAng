@@ -11,7 +11,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UsersServiceProvider } from '../providers/users-service/users-service';
 import { UserPage } from '../pages/user/user';
-
+import { BrightPage } from '../pages/bright/bright';
+import { Brightness } from '@ionic-native/brightness';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     AboutPage,
     HomePage,
     TabsPage,
-    UserPage
+    UserPage,
+    BrightPage
   ],
   imports: [
     BrowserModule,
@@ -33,14 +35,16 @@ import { HttpClientModule } from '@angular/common/http';
     AboutPage,
     HomePage,
     TabsPage,
-    UserPage
+    UserPage,
+    BrightPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UsersServiceProvider,
-    HttpClientModule
+    HttpClientModule,
+    Brightness
   ]
 })
 export class AppModule {}
